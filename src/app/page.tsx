@@ -23,9 +23,9 @@ export default function Home() {
           style={{
             display: "inline-block",
             padding: "12px 20px",
-            backgroundColor: "#F875AA",
+            backgroundColor: "#547792",
             color: "white",
-            borderRadius: 8,
+            borderRadius: 8
           }}
         >
           Go to the posts
@@ -33,4 +33,4 @@ export default function Home() {
       </div>
     </main>
   );
-}
+} 
