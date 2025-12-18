@@ -1,33 +1,23 @@
 import Link from "next/link";
+import styles from "./home.module.css";
 
 export default function Home() {
   return (
     <main
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-      }}
+      className={styles.container}
     >
-      <div style={{ marginTop: "100px", textAlign: "center" }}>
-        <h1 style={{ fontSize: 32, marginBottom: 8 }}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>
           Streaver challenge app
         </h1>
 
-        <p style={{ marginBottom: 24 }}>
+        <p className={styles.text}>
           This app allows users to list posts from an API and filter them by userId.
         </p>
 
         <Link
           href="/posts"
-          style={{
-            display: "inline-block",
-            padding: "12px 20px",
-            backgroundColor: "#547792",
-            color: "white",
-            borderRadius: 8
-          }}
-        >
+          className={styles.button}>
           Go to the posts
         </Link>
       </div>

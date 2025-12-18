@@ -1,0 +1,28 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.title {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.text{
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #547792;
+    color: white;
+    border-radius: 8px;
+}

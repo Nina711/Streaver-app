@@ -1,0 +1,70 @@
+.container {
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 16px;
+}
+
+.title {
+    font-size: 28;
+    margin-bottom: 8;
+}
+
+.status {
+    opacity: 0.7;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.filterContainer {
+    display: "flex";
+    justify-content: "left"; 
+    align-items: "center";
+}
+
+.label {
+    display: "block"; 
+    margin-bottom: 8; 
+    font-size: 20; 
+    padding-right: 15;
+}
+
+.input {
+    height: 40px;
+    padding: 10;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 8px;
+}
+
+.loading {
+    margin-bottom: 8px;
+}
+
+.slow {
+    color: #b45309;
+    margin-bottom: 12px;
+}
+
+.error {
+    color: crimson;
+}
+
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.cardInfo {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.cardTitle {
+    margin: 8px 0;
+}
+
+.cardBody{
+    margin: 0;
+}
