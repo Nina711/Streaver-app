@@ -19,6 +19,7 @@ async function fetcher(url: string): Promise<Post[]> {
 
 export default function PostsPage() {
   const [userIdInput, setUserIdInput] = useState("");
+  const [isSlow, setIsSlow] = useState(false);
   const debouncedUserIdInput = useDebounce(userIdInput, 600);
   const userId = debouncedUserIdInput.trim();
   const url = userId ? `https://jsonplaceholder.typicode.com/posts?userId=${encodeURIComponent(userId)}` : "https://jsonplaceholder.typicode.com/posts";
@@ -28,31 +29,12 @@ export default function PostsPage() {
     {
       revalidateOnReconnect: true,
       shouldRetryOnError: true,
+      loadingTimeout: 1500,
+      onLoadingSlow: () => setIsSlow(true),
+      onSuccess: () => setIsSlow(false),
+      onError: () => setIsSlow(false)
     }
   );
-
-  if (isLoading) {
-    return (
-      <p style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}>Loading posts...</p>
-    );
-  }
-
-  if (error) {
-    return (
-      <p style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "crimson"
-      }}>Error: {String(error.message || error)}</p>
-    );
-  }
 
   return (
     <main style={{ maxWidth: 900, margin: "40px auto", padding: 16 }}>
@@ -81,6 +63,25 @@ export default function PostsPage() {
           }}
         />
       </div>
+
+      {isLoading && (
+        <p style={{ marginBottom: 8 }}>Loading posts...</p>
+      )}
+
+      {isSlow && (
+        <p style={{
+          color: "#b45309",
+          marginBottom: 12
+        }}>
+          This is taking longer than expected...
+        </p>
+      )}
+
+      {error && (
+        <p style={{
+          color: "crimson"
+        }}>Error: {String(error.message || error)}</p>
+      )}
 
       {data?.map((post) => (
         <div key={post.id} style={{
