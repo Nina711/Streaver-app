@@ -2,20 +2,9 @@
 
 import useSWR from "swr";
 import { useState } from "react";
-import { useDebounce } from "../lib/useDebounce";
-
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-async function fetcher(url: string): Promise<Post[]> {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Error fetching posts");
-  return res.json();
-}
+import { useDebounce } from "../../lib/useDebounce";
+import type { Post } from "../../lib/types";
+import { fetcher } from "../../lib/fetcher"
 
 export default function PostsPage() {
   const [userIdInput, setUserIdInput] = useState("");
